@@ -1,11 +1,15 @@
 const config = {
   type: Phaser.AUTO,
-  width: 800,
-  height: 600,
+  width: window.innerWidth,
+  height: window.innerHeight,
   scene: {
     preload: preload,
     create: create,
     update: update,
+  },
+  scale: {
+    mode: Phaser.Scale.RESIZE, // 화면 크기 자동 조정
+    autoCenter: Phaser.Scale.CENTER_BOTH, // 화면 중앙 정렬
   },
 };
 
@@ -17,7 +21,18 @@ function preload() {
 
 function create() {
   // 초기화 설정
-  this.add.text(200, 300, "Hello, Phaser!", { fontSize: "32px", fill: "#fff" });
+  this.input.keyboard.on("keydown-F", () => {
+    if (!this.scale.isFullscreen) {
+      this.scale.startFullscreen();
+    } else {
+      this.scale.stopFullscreen();
+    }
+  });
+
+  this.add.text(50, 50, "Press F for Fullscreen", {
+    fontSize: "24px",
+    fill: "#ffffff",
+  });
 }
 
 function update() {
