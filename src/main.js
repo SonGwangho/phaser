@@ -29,10 +29,11 @@ function create() {
     }
   });
 
-  this.add.text(50, 50, "Press F for Fullscreen", {
-    fontSize: "24px",
-    fill: "#ffffff",
-  });
+  Toastify(
+    Object.assign({
+      text: "F키를 눌러 풀스크린 전환이 가능합니다.",
+    })
+  ).showToast();
 }
 
 function update() {
