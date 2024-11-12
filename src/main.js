@@ -89,6 +89,21 @@ function create() {
   };
 
   this.physics.add.collider(player, this.enemies, loseGame, null, this);
+
+  const winInterval = setInterval(() => {
+    console.log(this.enemies);
+    if (this.enemies.getLength() < 1) {
+      clearInterval(winInterval);
+      Toastify(
+        Object.assign({
+          text: `와 이겼다!`,
+        })
+      ).showToast();
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
+    }
+  }, 1000);
 }
 
 function update(time) {
