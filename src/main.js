@@ -29,8 +29,8 @@ let lastFired = 0;
 
 function preload() {
   // 리소스 로드
-  this.load.image("player", "../assets/player.png");
-  this.load.image("bullet", "../assets/bullet.png");
+  this.load.image("player", "./assets/player.png");
+  this.load.image("bullet", "./assets/bullet.png");
 }
 
 function create() {
